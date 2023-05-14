@@ -99,7 +99,7 @@
                     <div class="gambar" style="margin-top: 15px;">
                         <label for="gambar" style="font-weight: bold">Gambar</label> <br>
                         <input type="file" id="gambar" required class="inputan" name="image" onchange="getImagePreview(event)" style="width: 100%; padding: 6px 6px !important">
-                        <div class="preview" id="preview" style="margin-left: 140px; margin-top: 15px;">
+                        <div class="preview" id="preview" style="margin-left: 140px; margin-top: 15px; max-width: 200px">
                             <!-- <img src="assets\image\1193451540_siswa2.jpg" alt=""> -->
                         </div>
                     </div>

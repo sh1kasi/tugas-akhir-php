@@ -42,9 +42,10 @@ require_once('../function/connection.php');
                     if (in_array($extension,  $allowed_extension)) {
                         if ($size <= $max_size) {
                             $pepe = $rand.'_'.$image;
+                            unlink('../assets/image/' . $data->image);
                             move_uploaded_file($files['tmp_name'], "../assets/image/".$rand."_".$image);
-                            $_SESSION['success'] = "Berhasil mengedit data!";
                             $query = mysqli_query($connect, "UPDATE username SET username='$username', password='$password', image='$pepe' WHERE id=" . $id);
+                            $_SESSION['success'] = "Berhasil mengedit data!";
                             redirect("../user.php");
                         }
                     } else {
