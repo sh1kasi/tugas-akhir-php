@@ -3,9 +3,23 @@
 require_once('../function/helper.php');
 require_once('../function/connection.php');
 
+    $id = $_GET['id'];
+
+    $query = mysqli_query($connect, "SELECT * FROM username where id = " . $id);
+    $data = mysqli_fetch_object($query);
+
     $username = $_POST['name'];
-    $password = md5($_POST['password']);
-    $password_confirmation = md5($_POST['password_confirmation']);
+
+    if ($password === "") {
+        // dd("a");
+        $password = $data->password;
+        $password_confirmation = $data->password;
+    } else {
+        $password = md5($_POST['password']);
+        $password_confirmation = md5($_POST['password_confirmation']);
+    }
+
+    // dd($password);
 
     $rand = rand();
 
@@ -17,9 +31,6 @@ require_once('../function/connection.php');
     $allowed_extension = array('png', 'jpg', 'jpeg');
     $extension = end($ext_array);
 
-    $id = $_GET['id'];
-
-    $query = mysqli_query($connect, "SELECT * FROM username where id = " . $id);
 
     // dd($files);
 

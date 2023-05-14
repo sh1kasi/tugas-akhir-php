@@ -99,11 +99,11 @@ $user = mysqli_fetch_object($query);
                     </div>
                     <div class="password" style="margin-top: 15px;">
                         <label for="password" style="font-weight: bold">Password</label> <br>
-                        <input type="password" id="password" class="inputan" required name="password" style="width: 100%;">
+                        <input type="password" id="password" class="inputan" name="password" style="width: 100%;">
                     </div>
                     <div class="password_confirmation" style="margin-top: 15px;">
                         <label for="password_confirmation" style="font-weight: bold">Password Konfirmasi</label> <br>
-                        <input type="password" required id="password_confirmation" 
+                        <input type="password" id="password_confirmation" 
                      class="inputan" name="password_confirmation" style="width: 100%;">
                     </div>
                     <div class="gambar" style="margin-top: 15px;">
