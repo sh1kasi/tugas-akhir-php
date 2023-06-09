@@ -29,7 +29,7 @@
     // $query = mysqli_query($connect, "SELECT * FROM username");
 
         
-    $per_page = 1;
+    $per_page = 2;
     $page = isset($_GET['page']) ? $_GET['page'] : 1;
     $start = ($page > 1) ? ($page * $per_page) - $per_page : 0;
     $result = mysqli_query($connect, "SELECT * FROM username");
@@ -44,7 +44,7 @@
     }
     // dd($page);
     // dd(json_encode($query));
-    // dd($data);
+    // dd(count($data));
 
 ?> 
 
@@ -154,19 +154,25 @@
            </div>
            <div class="pagination">
             <div class="info">
-                <p><?= $page; ?> dari <?= $pages; ?> halaman</p>
+                <?php if (count($data) != 0) : ?>
+                    <p><?= $page; ?> dari <?= $pages; ?> halaman</p>
+                <?php endif; ?>
             </div>
             <div class="page">
-                <?php if (isset($_GET['page']) && $_GET['page'] != 1) : ?>
-                    <a href="?page=<?= $page - 1; ?>"><</a>
-                <?php endif; ?>
-                <?php for ($i=1; $i <= $pages; $i++) : ?>
-                    <a href="?page=<?= $i; ?>"><?= $i; ?></a>
-                <?php endfor; ?>
-                <?php if (isset($_GET['page']) && $_GET['page'] != $pages) : ?>
-                    <a href="?page=<?= $page + 1; ?>">></a>
-                <?php elseif (!isset($_GET['page'])) : ?>
-                    <a href="?page=<?= $page + 1; ?>">></a>
+                <?php if (count($data) != 0 && $total_data > count($data)) :?>
+                    <?php if (isset($_GET['page']) && $_GET['page'] != 1) : ?>
+                        <a href="?page=<?= $page - 1; ?>"><</a>
+                    <?php endif; ?>
+                    <?php for ($i=1; $i <= $pages; $i++) : ?>
+                        <a href="?page=<?= $i; ?>"><?= $i; ?></a>
+                    <?php endfor; ?>
+                    <?php if (isset($_GET['page']) && $_GET['page'] != $pages) : ?>
+                        <a href="?page=<?= $page + 1; ?>">></a>
+                    <?php elseif (!isset($_GET['page'])) : ?>
+                        <a href="?page=<?= $page + 1; ?>">></a>
+                    <?php endif; ?>
+                    <?php else : ?>
+                        
                 <?php endif; ?>
             </div>
            </div>

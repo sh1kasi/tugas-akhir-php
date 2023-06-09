@@ -166,7 +166,7 @@
      var newimg=document.createElement('img');
      imagediv.innerHTML='';
      newimg.src=image;
-     newimg.width
+     newimg.style.width="200px";
      imagediv.appendChild(newimg);
     }
 

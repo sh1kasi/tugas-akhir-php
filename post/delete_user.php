@@ -16,5 +16,4 @@ unlink('../assets/image/' . $data->image);
 $_SESSION['success'] = "ID " . $user_id . " Berhasil terhapus!";
 redirect("../user.php");
 
-
 ?>
